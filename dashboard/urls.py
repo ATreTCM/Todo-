@@ -8,5 +8,6 @@ urlpatterns = [
     path('<int:pk>/delete', views.TdDeleteView.as_view(), name='pay_delete'),
     path('', views.TdListView.as_view(), name='list'),
     path('<int:pk>', views.TdDetailView.as_view(), name='detail'),
+    path('create/', views.createView, name='create'),
 
 ]

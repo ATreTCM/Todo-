@@ -4,9 +4,21 @@ from django.views.generic import UpdateView, DetailView, DeleteView, ListView
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 from .models import TodoDb
+from .forms import TasksForm
 
 
-from .forms import TdForm
+@login_required
+def createView(request):
+    if request.method == 'POST':
+        task_form = TasksForm(request.POST)
+        if task_form.is_valid():
+            task = task_form.save(commit=False)
+            task.author = request.user
+            task.save()
+            return redirect('dashboard:list')
+    else:
+        task_form = TasksForm()
+    return render(request, 'dashboard/create.html', {'task_form': task_form})
 
 
 class TdListView(LoginRequiredMixin, ListView):
