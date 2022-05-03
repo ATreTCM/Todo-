@@ -8,8 +8,8 @@ class TodoDb(models.Model):
     header = models.CharField(max_length=100)
     content = models.TextField(max_length=500)
     slave = models.CharField(max_length=100)
-    date_add = models.DateField(auto_now_add=True)
-    date_update = models.DateField(auto_now=True)
+    date_add = models.DateTimeField(auto_now_add=True)
+    date_update = models.DateTimeField(auto_now=True)
     photo = models.ImageField()
 
     def get_absolute_url(self):

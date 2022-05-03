@@ -8,4 +8,5 @@ class TasksForm(ModelForm):
         fields = ['header',
                   'content',
                   'slave',
+                  #'photo',
                   ]
