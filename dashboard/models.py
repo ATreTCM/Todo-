@@ -10,7 +10,7 @@ class TodoDb(models.Model):
     slave = models.CharField(max_length=100)
     date_add = models.DateTimeField(auto_now_add=True)
     date_update = models.DateTimeField(auto_now=True)
-    photo = models.ImageField()
+    photo = models.ImageField(blank=True, null=True, upload_to='uploads/%Y/%m/%d/')
 
     def get_absolute_url(self):
         return reverse('dashboard:detail', kwargs={'pk': self.pk})
