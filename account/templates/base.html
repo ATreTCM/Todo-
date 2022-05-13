@@ -6,7 +6,7 @@
         <meta charset="UTF-8">
         <meta name="viewport"
         content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>{% block title %} Главная {% endblock %} - ToDo</title>
+        <title>{% block title %} Головна {% endblock %} - ToDo</title>
         {% bootstrap_css %}
         <link rel="stylesheet" type="text/css"
         href="{% static 'main/style.css' %}">
@@ -20,21 +20,21 @@
             <ul class="col nav justify-content-end border">
                 {% if user.is_authenticated %}
                 <li class="nav-item"><a class="nav-link"
-                href="{% url 'logout' %}">Выйти</a></li>
+                href="{% url 'logout' %}">Вихід</a></li>
                 {% else %}
                 <li class="nav-item"><a class="nav-link"
-                href="{% url 'login' %}">Bxoд</a></li>
+                href="{% url 'login' %}">Вхід</a></li>
                 <li class="nav-item"><a class="nav-link"
-                href="{% url 'register' %}">Регистрация</a></li>
+                href="{% url 'register' %}">Регістрація</a></li>
                 {% endif %}
             </ul>
         </div>
         <div class="row">
             <nav class="col-md-auto nav flex-column border">
                 <a class="nav-link root"
-                href="{% url 'dashboard' %}">Главная</a>
-                <a class="nav-link" href="{% url 'dashboard:create' %}">Ввести данные</a>
-                <a class="nav-link" href="{% url 'dashboard:list' %}">Мои данные</a>
+                href="{% url 'dashboard' %}">Головна</a>
+                <a class="nav-link" href="{% url 'dashboard:create' %}">Ввести данні</a>
+                <a class="nav-link" href="{% url 'dashboard:list' %}">Мои данні</a>
             </nav>
             <section class="col border ру-2">
                 {% bootstrap_messages %}

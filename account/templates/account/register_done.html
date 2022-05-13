@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 
-{% block title %}Добро пожаловать{% endblock %}
+{% block title %}Ласкаво просимо{% endblock %}
 
 {% block content %}
-    <h1>Привет {{ new_user.first_name }}!</h1>
-    <p>Твой аккаунт успешно зарегистрирован
-        Сейчас ты можешь <a href="{% url 'login' %}">Войти</a>.</p>
+    <h1>Привіт {{ new_user.first_name }}!</h1>
+    <p>Твій аккаунт успішно зарегістрован</p>
+    <p>Зараз ты можешь <a href="{% url 'login' %}">Увійти</a>.</p>
 {% endblock %} 

@@ -10,7 +10,7 @@ from .forms import TasksForm
 @login_required
 def createView(request):
     if request.method == 'POST':
-        task_form = TasksForm(request.POST)
+        task_form = TasksForm(request.POST, request.FILES)
         if task_form.is_valid():
             task = task_form.save(commit=False)
             task.author = request.user

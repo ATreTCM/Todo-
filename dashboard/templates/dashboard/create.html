@@ -2,9 +2,10 @@
 {% load bootstrap4 %}
 {% block title %}{{ from_name.name }}{% endblock %}
 {% block content %}
-    <form method="post">
+    <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
+        {{ task_form.media }}
         {% bootstrap_form task_form %}
-        {% buttons submit="Отправить" %} {% endbuttons %}
+        {% buttons submit="Відправити" %} {% endbuttons %}
     </form>
 {% endblock %}

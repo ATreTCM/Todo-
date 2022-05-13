@@ -2,13 +2,13 @@
 
 {% load bootstrap4 %}
 
-{% block title %}Регистрация{% endblock %}
+{% block title %}Регістрація{% endblock %}
 
 {% block content %}
-    <h1>Регистрация нового пользователя</h1>
+    <h1>Регістрація нового користувача</h1>
     <form method="post">
         {% csrf_token %}
         {% bootstrap_form user_form layout='horizontal' %}
-        {% buttons submit='Зарегистрироваться' %}{% endbuttons %}
+        {% buttons submit='Зарегіструватися' %}{% endbuttons %}
     </form>
 {% endblock %} 

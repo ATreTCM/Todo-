@@ -2,15 +2,15 @@
 
 {% block title %}{{ detail_content.author }}{% endblock %}
 {% block content %}
-    <h2>Заказ от {{ detail_content.author }}</h2>
+    <h2>Задача від {{ detail_content.author }}</h2>
     <div class="date" >
         <h3>{{ detail_content.header }}</h3>
         <p>{{ detail_content.content }}</p>
-        <p>Исполнитель {{ detail_content.slave }}</p>
-        <p>{{ detail_content.photo }}</p>
-        <p>Дата создания {{ detail_content.date_add }}</p>
-        <p>Дата редактирования {{ detail_content.date_update }} {{ detail_content.photo }}</p>
-        <p> <a href='{% url "dashboard:update" detail_content.pk %}'>Изменить</a>
-        <a href='{% url "dashboard:pay_delete" detail_content.pk %}'>Удалить</a></p>
+        <p>Виконавець {{ detail_content.slave }}</p>
+        <p><img src="/{{ detail_content.photo }}" alt="Задача" style="width:150px;height:150px;"></p>
+        <p>Дата створення {{ detail_content.date_add }}</p>
+        <p>Дата редагування {{ detail_content.date_update }}</p>
+        <p> <a href='{% url "dashboard:update" detail_content.pk %}'>Змінити</a>
+        <a href='{% url "dashboard:pay_delete" detail_content.pk %}'>Видалити</a></p>
     </div>
 {% endblock %}
