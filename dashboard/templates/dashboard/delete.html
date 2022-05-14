@@ -4,6 +4,7 @@
 
 {% block title %}Видалення{% endblock %}
 {% block content %}
+    <p>Ви впевнені?</p>
     <form method="post">
         {% csrf_token %}
         {% buttons submit="Видалити" %} {% endbuttons %}

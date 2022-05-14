@@ -2,6 +2,8 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.views.generic import UpdateView, DetailView, DeleteView, ListView
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.core.mail import send_mail
+from django.contrib.auth import get_user_model
 
 from .models import TodoDb
 from .forms import TasksForm
@@ -9,12 +11,22 @@ from .forms import TasksForm
 
 @login_required
 def createView(request):
+    User = get_user_model()
+    users = list(User.objects.all())
     if request.method == 'POST':
         task_form = TasksForm(request.POST, request.FILES)
         if task_form.is_valid():
             task = task_form.save(commit=False)
             task.author = request.user
             task.save()
+            for u in users:
+                if str(u) in task.slave:
+                    send_mail(
+                        'Завдання',
+                        'Для вас є нове завдання',
+                        u.email,
+                        ['atret1988@gmail.com']
+                    )
             return redirect('dashboard:list')
     else:
         task_form = TasksForm()
