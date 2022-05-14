@@ -10,7 +10,9 @@
         <p><img src="/{{ detail_content.photo }}" alt="Задача" style="width:150px;height:150px;"></p>
         <p>Дата створення {{ detail_content.date_add }}</p>
         <p>Дата редагування {{ detail_content.date_update }}</p>
-        <p> <a href='{% url "dashboard:update" detail_content.pk %}'>Змінити</a>
-        <a href='{% url "dashboard:pay_delete" detail_content.pk %}'>Видалити</a></p>
+        {% if request.user == detail_content.author %}
+            <p> <a href='{% url "dashboard:update" detail_content.pk %}'>Змінити</a>
+            <a href='{% url "dashboard:pay_delete" detail_content.pk %}'>Видалити</a></p>
+        {% endif %}
     </div>
 {% endblock %}

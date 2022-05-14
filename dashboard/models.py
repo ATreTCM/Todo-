@@ -7,7 +7,7 @@ class TodoDb(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     header = models.CharField(max_length=100, verbose_name='Заголовок')
     content = models.TextField(max_length=500, verbose_name='Задача')
-    slave = models.CharField(max_length=100, verbose_name='Виконавець')
+    slave = models.CharField(max_length=100, verbose_name='Виконавець', blank=True)
     date_add = models.DateTimeField(auto_now_add=True)
     date_update = models.DateTimeField(auto_now=True)
     photo = models.ImageField(blank=True, null=True, upload_to='uploads/%Y/%m/%d/',verbose_name='Фото')

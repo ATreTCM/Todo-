@@ -19,14 +19,15 @@ def createView(request):
             task = task_form.save(commit=False)
             task.author = request.user
             task.save()
-            for u in users:
-                if str(u) in task.slave:
-                    send_mail(
-                        'Завдання',
-                        'Для вас є нове завдання',
-                        u.email,
-                        ['atret1988@gmail.com']
-                    )
+            if task.slave:
+                for u in users:
+                    if str(u) in task.slave:
+                        send_mail(
+                            'Завдання',
+                            'Для вас є нове завдання',
+                            u.email,
+                            ['atret1988@gmail.com']
+                        )
             return redirect('dashboard:list')
     else:
         task_form = TasksForm()
