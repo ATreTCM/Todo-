@@ -67,3 +67,4 @@ class TdDeleteView(LoginRequiredMixin, DeleteView):
     raise_exception = True
 
 
+

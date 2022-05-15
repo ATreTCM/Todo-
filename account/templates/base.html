@@ -32,7 +32,7 @@
         <div class="row">
             <nav class="col-md-auto nav flex-column border">
                 <a class="nav-link root"
-                href="{% url 'dashboard' %}">Головна</a>
+                href="{% url 'users_list' %}">Головна</a>
                 <a class="nav-link" href="{% url 'dashboard:create' %}">Ввести данні</a>
                 <a class="nav-link" href="{% url 'dashboard:list' %}">Мои данні</a>
             </nav>
@@ -41,6 +41,15 @@
                 {% block content %}
                 {% endblock %}
             </section>
+             <nav class="col-md-auto nav flex-column border">
+                <ul>
+                    {% for user in users_list %}
+                    <li>
+                        {{ user }}
+                    </li>
+                    {% endfor %}
+                </ul>
+             </nav>
         </div>
         <footer class="mt-3">
             <p class="text-right font-italic">&copy; by ATreT</p>

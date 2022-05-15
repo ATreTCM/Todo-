@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from .forms import UserRegistrationForm
+from django.contrib.auth.models import User
 
 
 def register(request):
@@ -17,5 +18,10 @@ def register(request):
 
 
 @login_required
-def dashboard(request):
-    return render(request, 'account/dashboard.html', {'section': 'dashboard'})
+def userList(request):
+    users_list = User.objects.all()
+    context = {
+        'users_list': users_list,
+        'section': 'dashboard',
+    }
+    return render(request, 'account/dashboard.html', context)
