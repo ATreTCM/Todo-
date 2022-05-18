@@ -8,5 +8,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('account.urls')),
     path('dashboard/', include('dashboard.urls', namespace='dashboard')),
+    path('api/', include('dashboard.api.urls', namespace='api')),
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

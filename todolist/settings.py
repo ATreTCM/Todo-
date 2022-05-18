@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'bootstrap4',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -142,3 +143,10 @@ EMAIL_PORT = '465'
 EMAIL_HOST_USER = 'atret1988@gmail.com'
 EMAIL_HOST_PASSWORD = 'nunrbggdhmvuxoyr'
 EMAIL_USE_TLS = False
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}
