@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 
 
 class TodoDb(models.Model):
+    """Таблица для поставленных задачь"""
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     header = models.CharField(max_length=100, verbose_name='Заголовок')
     content = models.TextField(max_length=500, verbose_name='Задача')

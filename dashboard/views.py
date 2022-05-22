@@ -11,6 +11,7 @@ from .forms import TasksForm
 
 @login_required
 def createView(request):
+    """Создание задачи"""
     User = get_user_model()
     users = list(User.objects.all())
     if request.method == 'POST':
@@ -35,6 +36,7 @@ def createView(request):
 
 
 class TdListView(LoginRequiredMixin, ListView):
+    """список задачь"""
     model = TodoDb
     template_name = 'dashboard/list.html'
     context_object_name = 'list_content'
@@ -42,6 +44,7 @@ class TdListView(LoginRequiredMixin, ListView):
 
 
 class TdDetailView(LoginRequiredMixin, DetailView):
+    """Определенная задача"""
     model = TodoDb
     template_name = 'dashboard/details.html'
     context_object_name = 'detail_content'
@@ -49,6 +52,7 @@ class TdDetailView(LoginRequiredMixin, DetailView):
 
 
 class TdUpdateView(LoginRequiredMixin, UpdateView):
+    """обновление задачи"""
     model = TodoDb
     template_name = 'dashboard/update.html'
     fields = ['author',
@@ -61,6 +65,7 @@ class TdUpdateView(LoginRequiredMixin, UpdateView):
 
 
 class TdDeleteView(LoginRequiredMixin, DeleteView):
+    """удаление задачи"""
     model = TodoDb
     success_url = '/'
     template_name = 'dashboard/delete.html'

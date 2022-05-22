@@ -1,10 +1,10 @@
 from django.shortcuts import render
-from django.contrib.auth.decorators import login_required
 from .forms import UserRegistrationForm
 from django.contrib.auth.models import User
 
 
 def register(request):
+    """Регистрация пользователей"""
     if request.method == 'POST':
         user_form = UserRegistrationForm(request.POST)
         if user_form.is_valid():
@@ -17,8 +17,8 @@ def register(request):
     return render(request, 'account/register.html', {'user_form': user_form})
 
 
-@login_required
 def userList(request):
+    """список зарегистрированых пользователей"""
     users_list = User.objects.all()
     context = {
         'users_list': users_list,
