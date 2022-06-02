@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'rest_framework',
     'account.apps.AccountConfig',
     'dashboard.apps.DashboardConfig',
     'django.contrib.admin',
@@ -42,7 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'bootstrap4',
-    'rest_framework',
+
 ]
 
 MIDDLEWARE = [
