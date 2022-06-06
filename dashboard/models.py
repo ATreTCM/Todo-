@@ -17,5 +17,8 @@ class TodoDb(models.Model):
         return reverse('dashboard:detail', kwargs={'pk': self.pk})
 
     class Meta:
+        verbose_name = 'Todoшка'
+        verbose_name_plural = 'Todoшки'
         ordering = ['date_add']
+
 

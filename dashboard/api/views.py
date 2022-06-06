@@ -1,4 +1,4 @@
-from rest_framework import generics, viewsets, permissions
+from rest_framework import viewsets, permissions
 from ..models import TodoDb
 from .serializers import TodoDbSerializer
 
