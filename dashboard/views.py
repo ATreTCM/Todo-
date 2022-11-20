@@ -70,6 +70,3 @@ class TdDeleteView(LoginRequiredMixin, DeleteView):
     success_url = '/'
     template_name = 'dashboard/delete.html'
     raise_exception = True
-
-
-
