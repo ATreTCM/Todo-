@@ -9,4 +9,5 @@ urlpatterns = [
     path('', views.TdListView.as_view(), name='list'),
     path('<int:pk>', views.TdDetailView.as_view(), name='detail'),
     path('create/', views.createView, name='create'),
+    
 ]
