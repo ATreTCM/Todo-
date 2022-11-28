@@ -43,15 +43,14 @@ class TodoDb(models.Model):
         default= False
         )
         
-        
-    cancel = models.BooleanField(  
-        default= False
-        )
-
+    def is_complate(self):
+        self.complate = "True"
+        self.save()   
+         
     def get_absolute_url(self):
         return reverse('dashboard:detail', kwargs={'pk': self.pk})
     
-    def str(self):
+    def __str__(self):
         return self.header
         
     class Meta:

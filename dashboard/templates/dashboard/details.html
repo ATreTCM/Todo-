@@ -11,17 +11,14 @@
         <p>Дата створення {{ detail_content.date_add }}</p>
         <p>Дата редагування {{ detail_content.date_update }}</p>
 
-        {% if request.user != detail_content.author %}
-            <div>
-                <button type="submit">Виконано</button>
-            </div>
+        {% if request.user != detail_content.slave %}
+    
+            <button type="submit" onClick="{{ detail_content.is_complate }}">Виконано</button> 
+
         {% endif %}
         {% if request.user == detail_content.author %}
-            <div>
-                <button type="submit">Відміна</button>
-            </div>
-            <p> <a href='{% url "dashboard:update" detail_content.pk %}'>Змінити</a>
-            <a href='{% url "dashboard:delete" detail_content.pk %}'>Видалити</a></p>
+            <p><a href='{% url "dashboard:update" detail_content.pk %}'>Змінити</a></p>
+            <p><a href='{% url "dashboard:delete" detail_content.pk %}'>Видалити</a></p>
         {% endif %}
     </div>
 {% endblock %}

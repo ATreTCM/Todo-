@@ -48,7 +48,7 @@ class TdDetailView(LoginRequiredMixin, DetailView):
     model = TodoDb
     template_name = 'dashboard/details.html'
     context_object_name = 'detail_content'
-    raise_exception = True
+    raise_exception = True     
         
 
 class TdUpdateView(LoginRequiredMixin, UpdateView):

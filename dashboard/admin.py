@@ -12,27 +12,23 @@ class TodoDBAdmin(admin.ModelAdmin):
         'date_add',
         'date_update',
         'photo',
-        'complate',
-        'cancel',     
+        'complate',   
         )
     list_filter = (
         'author',
         'date_add',
         'date_update',
         'complate',
-        'cancel',
         'slave'
     )
     search_fields = (
         'author',
         'slave',
         'complate',
-        'cancel',
         'date_add'
     )
     ordering = (
         'complate',
-        'cancel',
     )
     
 
